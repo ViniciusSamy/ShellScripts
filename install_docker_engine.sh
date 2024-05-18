@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -15,3 +17,8 @@ sudo apt-get update
 # Install the Docker packages:
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# Adding user on docker group
+HOME_USER=$USER
+echo "Adicionando o usuario ao grupo do docker" $HOME_USER
+sudo usermod -a -G docker $HOME_USER
+newgrp docker
